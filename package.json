@@ -3,6 +3,7 @@
     "displayName": "Portable Game Notation",
     "description": "Syntax highlighting for chess game notation files",
     "version": "0.1.0",
+    "publisher": "shreyasminocha",
     "engines": {
         "vscode": "^1.49.0"
     },
@@ -11,20 +12,35 @@
         "Snippets"
     ],
     "contributes": {
-        "languages": [{
-            "id": "pgn",
-            "aliases": ["Portable Game Notation", "pgn"],
-            "extensions": [".pgn"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "pgn",
-            "scopeName": "text.pgn",
-            "path": "./syntaxes/pgn.tmLanguage.json"
-        }],
-        "snippets": [{
-            "language": "pgn",
-            "path": "./snippets.json"
-        }]
+        "languages": [
+            {
+                "id": "pgn",
+                "aliases": [
+                    "Portable Game Notation",
+                    "pgn"
+                ],
+                "extensions": [
+                    ".pgn"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "pgn",
+                "scopeName": "text.pgn",
+                "path": "./syntaxes/pgn.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "pgn",
+                "path": "./snippets.json"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shreyasminocha/vscode-pgn.git"
     }
 }
