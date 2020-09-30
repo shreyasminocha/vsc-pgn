@@ -1,0 +1,84 @@
+{
+  "name": "Portable Game Notation",
+  "scopeName": "text.pgn",
+  "fileTypes": [
+    "pgn"
+  ],
+  "uuid": "7925aa8f-2057-4b65-a5a7-ffb0772fc82b",
+  "repository": {
+    "commentary": {
+      "begin": "\\{",
+      "end": "\\}",
+      "name": "comment.block.pgn"
+    },
+    "variations": {
+      "begin": "\\(",
+      "end": "\\)",
+      "name": "meta.structure.array.pgn",
+      "patterns": [
+        {
+          "include": "#variations",
+          "name": "meta.structure.array.pgn"
+        },
+        {
+          "include": "#commentary",
+          "name": "comment.block.pgn"
+        }
+      ]
+    }
+  },
+  "patterns": [
+    {
+      "comment": "Periods",
+      "name": "punctuation.move-number.pgn",
+      "match": "\\d+(\\.{3}|\\.) "
+    },
+    {
+      "comment": "Variation brackets",
+      "name": "punctuation.variation.pgn",
+      "match": "[\\(\\)]"
+    },
+    {
+      "comment": "Result",
+      "name": "constant.language.result.pgn",
+      "match": "((1/2-1/2|1-0|0-1)|\\*)"
+    },
+    {
+      "comment": "Commentary",
+      "include": "#commentary"
+    },
+    {
+      "comment": "Nested variations",
+      "include": "#variations"
+    },
+    {
+      "comment": "Rest-of-line comments",
+      "name": "comment.line.semicolon.pgn",
+      "match": ";.*$"
+    },
+    {
+      "comment": "Check, check mate, takes",
+      "name": "keyword.operator.pgn",
+      "match": "[x+#=]"
+    },
+    {
+      "comment": "Good, Bad, Excellent, Blunder",
+      "name": "keyword.operator.opinion.pgn",
+      "match": "[\\?!]{1,2}"
+    },
+    {
+      "comment": "PGN Tags",
+      "name": "entity.meta.tag.pgn",
+      "begin": "\\[([a-zA-Z]*) (\\\".*\\\")",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.parameter.pgn"
+        },
+        "2": {
+          "name": "string.quoted.double.pgn"
+        }
+      },
+      "end": "\\]"
+    }
+  ]
+}
